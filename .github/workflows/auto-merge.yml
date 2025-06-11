@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '11 7 * * *'
+    - cron: '12 7 * * *'
 
 jobs:
   auto-merge:
