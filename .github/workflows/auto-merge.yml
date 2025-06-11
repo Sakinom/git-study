@@ -2,6 +2,7 @@ name: Auto Merge Pull Requests
 
 permissions:
   pull-requests: write
+  contents: write
 
 on:
   schedule:
