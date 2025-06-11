@@ -1,0 +1,21 @@
+name: Auto Merge Pull Requests
+
+permissions:
+  pull-requests: write
+
+on:
+  schedule:
+    - cron: '11 7 * * *'
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Auto merge PRs with 'automerge' label
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr list --label "automerge" --json number -q '.[].number' | xargs -I {} gh pr merge {} --merge --auto
