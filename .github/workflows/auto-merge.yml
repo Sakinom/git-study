@@ -6,7 +6,7 @@ permissions:
 
 on:
   schedule:
-    - cron: '03 3 * * *'
+    - cron: '11 4 * * *'
   workflow_dispatch:
 
 jobs:
@@ -18,7 +18,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup GitHub CLI
-        uses: cli/cli-action@v2
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gh
 
       - name: Authenticate GitHub CLI
         run: |
