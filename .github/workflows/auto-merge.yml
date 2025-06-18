@@ -30,7 +30,7 @@ jobs:
         run: |
           prs=$(gh pr list --label "automerge" --json number -q '.[].number')
           if [ -z "$prs" ]; then
-            echo "No PRs to merge"
+            echo "No PRs to merge."
             exit 0
           fi
 
